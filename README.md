@@ -1,7 +1,9 @@
 # trying_kubernetes
 
+The purpose of this repository to document the process and result of learning Kubernetes. My main objective to deploy a  Gitea service with replicated MariaDB on a Kubernetes cluster.
+
 ## docker images
-Currently the docker image is ready to operate in master-slave configuration. Image is based on latest [official mariadb](https://hub.docker.com/_/mariadb) image. 
+Currently a MariaDB docker image is ready to operate in master-slave configuration. Image is based on latest [official mariadb](https://hub.docker.com/_/mariadb) image. 
 
 The master and the slave mysql servers will use the same image, you can choose between modes by defining MARIADB_REPLICATION_SERVER_TYPE environment variables. 
 
