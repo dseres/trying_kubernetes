@@ -19,7 +19,7 @@ docker run -ti --rm --name mariadb --hostname mariadb -e MYSQL_ROOT_PASSWORD=pas
 ```
 **To run slave node:**
 ```
-docker run -ti --rm --name mariadb-slave --hostname-slave -e MYSQL_ROOT_PASSWORD=password -e MARIADB_REPLICATION_SERVER_TYPE=SLAVE -e MARIADB_REPLICATION_USER=replicator -e MARIADB_REPLICATION_PASSWORD=replicatorpwd   -e MARIADB_REPLICATION_HOST=mariadb -e MARIADB_REPLICATION_SERVER_ID=1001 --network marianetw -v /docker_data/mariadb_slave:/var/lib/mysql mariadb-replicas:1.0
+docker run -ti --rm --name mariadb-slave --hostname mariadb-slave -e MYSQL_ROOT_PASSWORD=password -e MARIADB_REPLICATION_SERVER_TYPE=SLAVE -e MARIADB_REPLICATION_USER=replicator -e MARIADB_REPLICATION_PASSWORD=replicatorpwd   -e MARIADB_REPLICATION_HOST=mariadb -e MARIADB_REPLICATION_SERVER_ID=1001 --network marianetw -v /docker_data/mariadb_slave:/var/lib/mysql mariadb-replicas:1.0
 ```
 
 **To run Gitea image:**
