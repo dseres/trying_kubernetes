@@ -1,1 +1,0 @@
-from gitea/gitea:latest

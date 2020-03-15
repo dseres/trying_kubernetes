@@ -42,7 +42,8 @@ if [[ $MARIADB_REPLICATION_SERVER_TYPE == "SLAVE" ]]; then
         -e "s/log-basename=master1/log-basename=slave$MARIADB_REPLICATION_SERVER_ID/" \
         -e "s/#slave-skip-errors=1062/slave-skip-errors=1062/" \
         -e "s/#read_only/read_only/" \
-        -e "s/log-bin/#log-bin/" \
+        -e "s/#replicate_do_db=gitea/replicate_do_db=gitea/" \
+        -e "s/^log-bin/#log-bin/" \
         /etc/mysql/mariadb.cnf
 fi
 

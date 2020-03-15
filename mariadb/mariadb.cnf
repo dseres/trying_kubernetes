@@ -21,6 +21,7 @@ collation_server      = utf8_general_ci
 log-bin
 server_id=1
 log-basename=master1
+#replicate_do_db=gitea
 
 # Import all .cnf files from configuration directory
 !includedir /etc/mysql/mariadb.conf.d/
