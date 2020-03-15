@@ -3,12 +3,13 @@ services:
 
   gitea:
     image: gitea/gitea:latest
+    restart: always
     ports:
       - "13000:3000"
       - "10022:22"
     networks:
       giteanet:
-    hostname: "gitea"
+    hostname: gitea
     environment:
       - USER_UID=1000
       - USER_GID=1000
@@ -24,6 +25,7 @@ services:
 
   mariadb:
     image: mariadb-replicas:1.0
+    restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MARIADB_REPLICATION_SERVER_TYPE=MASTER
@@ -32,13 +34,13 @@ services:
     networks:
       giteanet:
       dbnet:
-    hostname: "mariadb"
+    hostname: mariadb
     volumes:
       - /docker_data/mariadb_master:/var/lib/mysql
 
   mariadb-slave:
     image: mariadb-replicas:1.0
-    hostname: mariadb-slave
+    restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MARIADB_REPLICATION_SERVER_TYPE=SLAVE
@@ -48,7 +50,7 @@ services:
       - MARIADB_REPLICATION_SERVER_ID=1001
     networks:
       dbnet:
-    hostname: "mariadb-slave"
+    hostname: mariadb-slave
     volumes:
       - /docker_data/mariadb_slave:/var/lib/mysql
     depends_on:
