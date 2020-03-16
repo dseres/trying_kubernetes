@@ -50,7 +50,7 @@ services:
       - MARIADB_REPLICATION_SERVER_ID=1001
     networks:
       dbnet:
-    hostname: mariadb-slave
+    hostname: mariadb-sl4ve
     volumes:
       - /docker_data/mariadb_slave:/var/lib/mysql
     depends_on:
